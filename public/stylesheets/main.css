@@ -1,0 +1,47 @@
+.navbar-brand {
+    /*padding: 0 0;*/
+}
+.navbar-inverse {
+    background-color: #1B1919;
+}
+.main {
+    height: 85vh;
+    margin-top: 60px;
+}
+.results {
+    overflow: hidden;
+    overflow-y: auto;
+    height: 78vh;
+    margin: 8px 0;
+}
+.footer {
+    text-align: center;
+}
+.running {
+    color: #00F900;
+}
+.not-running {
+    color: #FB7171;
+}
+ul, li.tweet {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul {
+    margin: 2em 0;
+}
+
+li.tweet {
+    margin: 1em;
+    margin-left: 3em;
+}
+
+li.tweet:before {
+    content: '\f099';
+    font-family: 'FontAwesome';
+    float: left;
+    margin-left: -1.5em;
+    color: #0074D9;
+}

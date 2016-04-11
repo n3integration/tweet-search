@@ -1,0 +1,11 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /                       @controllers.TwitterController.searchPage
+POST    /twitter/status         @controllers.TwitterController.toggle
+POST    /twitter/search/:text   @controllers.TwitterController.search(text:String)
+GET     /twitter.stream         @controllers.TwitterController.events
+
+GET     /webjars/*file          controllers.WebJarAssets.at(file)
+GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
