@@ -18,22 +18,34 @@ package services;
 
 import com.google.common.collect.Lists;
 import models.TwitterStatus;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+import play.libs.EventSource;
 import play.libs.Json;
-import play.libs.LegacyEventSource;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
 
 @Singleton
-public class TwitterEventService {
+public class TwitterEventService implements Publisher {
 
     private final TwitterStatus status;
-    private final List<LegacyEventSource> clients = Lists.newCopyOnWriteArrayList();
+    private final List<Subscriber> clients = Lists.newCopyOnWriteArrayList();
 
     @Inject
     public TwitterEventService() {
         this.status = new TwitterStatus();
+    }
+
+    @Override
+    public void subscribe(Subscriber s) {
+        this.clients.add(s);
+    }
+
+    public TwitterEventService unsubscribe(Subscriber s) {
+        this.clients.remove(s);
+        return this;
     }
 
     public boolean toggle() {
@@ -44,22 +56,11 @@ public class TwitterEventService {
         return status.isEnabled();
     }
 
-    public TwitterEventService subscribe(LegacyEventSource legacyEventSource) {
-        this.clients.add(legacyEventSource);
-        return this;
-
-    }
-
-    public TwitterEventService unsubscribe(LegacyEventSource legacyEventSource) {
-        this.clients.remove(legacyEventSource);
-        return this;
-    }
-
     public <T> void forward(T eventData) {
-        clients.forEach((eventSource) -> eventSource.send(createEvent(eventData)));
+        clients.forEach((eventSource) -> eventSource.onNext(createEvent(eventData)));
     }
 
-    private static <T> LegacyEventSource.Event createEvent(T data) {
-        return LegacyEventSource.Event.event(Json.toJson(data));
+    private static <T>EventSource.Event createEvent(T data) {
+        return EventSource.Event.event(Json.toJson(data));
     }
 }

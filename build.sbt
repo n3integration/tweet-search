@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
 enablePlugins(SbtNativePackager)
 
 // Dockerfile Configuration
-packageName in Docker := "n3integration/tweetSearch"
+packageName in Docker := "n3integration/tweetsearch"
 
 version in Docker := "v1"
 
