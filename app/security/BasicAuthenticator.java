@@ -22,31 +22,37 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Security;
 
+/**
+ * Naive {@link Authenticator} to process BASIC authentication.
+ * Please note that this is only meant to demonstrate a BASIC
+ * authentication implementation and should not be used as-is
+ * in a real application.
+ */
 public class BasicAuthenticator extends Security.Authenticator {
 
     static final String AUTH_HEADER_NAME = "Authentication";
-    static final String SECRET_PASSWORD  = "topsecret";
+    static final String SECRET_PASSWORD  = System.getenv("SECRET_PASSWORD");
 
     @Override
     public String getUsername(Http.Context ctx) {
         if(ctx.request().hasHeader(AUTH_HEADER_NAME)) {
             try {
                 String authHeader = ctx.request().getHeader(AUTH_HEADER_NAME);
-                String decoded = BaseEncoding.base64().decode(authHeader).toString();
+                String decoded = new String(BaseEncoding.base64().decode(authHeader));
                 String tokens[] = decoded.split(":");
                 if(tokens.length == 2 && tokens[1].equalsIgnoreCase(SECRET_PASSWORD)) {
                     return tokens[0];
                 }
             }
             catch(Exception ex) {
-                Logger.error("Failed to extract user token from authentication header");
+                Logger.error("failed to extract user token from authentication header");
             }
         }
-        return null;
+        return null; // indicates that the user is not authorized
     }
 
     @Override
     public Result onUnauthorized(Http.Context ctx) {
-        return unauthorized("Unable to verify client authorization");
+        return unauthorized("unable to verify client");
     }
 }

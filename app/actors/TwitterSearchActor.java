@@ -17,6 +17,7 @@
 package actors;
 
 import akka.actor.UntypedActor;
+import play.Logger;
 import services.TwitterEventService;
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -24,6 +25,10 @@ import twitter4j.Twitter;
 
 import javax.inject.Inject;
 
+/**
+ * An {@link UntypedActor} that asynchronously processes our
+ * Twitter search request.
+ */
 public class TwitterSearchActor extends UntypedActor {
 
     @Inject
@@ -38,8 +43,14 @@ public class TwitterSearchActor extends UntypedActor {
             QueryResult queryResult = twitter.search(((Protocol) message).toQuery());
             twitterEventService.forward(queryResult);
         }
+        else {
+            Logger.error("Received an unknown event ==> {}", message.getClass().getSimpleName());
+        }
     }
 
+    /**
+     * Twitter search protocol.
+     */
     public static final class Protocol {
 
         private final String text;

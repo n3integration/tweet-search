@@ -14,10 +14,13 @@
  *  limitations under the License.
  * 
  */
-package models;
+package resources;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * Holds our application state
+ */
 public class TwitterStatus {
 
     private AtomicBoolean enabled;

@@ -29,6 +29,10 @@ libraryDependencies ++= Seq(
   "org.webjars" % "swagger-ui" % "2.1.8-M1"
 )
 
+libraryDependencies ++= Seq(
+  "org.mockito" % "mockito-core" % "1.10.19"
+)
+
 // fork in run := false
 
 enablePlugins(SbtNativePackager)

@@ -17,21 +17,22 @@
 package services;
 
 import com.google.common.collect.Lists;
-import models.TwitterStatus;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-import play.libs.EventSource;
+import play.libs.EventSource.Event;
 import play.libs.Json;
+import resources.TwitterStatus;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
 
+
 @Singleton
-public class TwitterEventService implements Publisher {
+public class TwitterEventService implements Publisher<Event> {
 
     private final TwitterStatus status;
-    private final List<Subscriber> clients = Lists.newCopyOnWriteArrayList();
+    private final List<Subscriber<Event>> clients = Lists.newCopyOnWriteArrayList();
 
     @Inject
     public TwitterEventService() {
@@ -60,7 +61,7 @@ public class TwitterEventService implements Publisher {
         clients.forEach((eventSource) -> eventSource.onNext(createEvent(eventData)));
     }
 
-    private static <T>EventSource.Event createEvent(T data) {
-        return EventSource.Event.event(Json.toJson(data));
+    private static <T>Event createEvent(T data) {
+        return Event.event(Json.toJson(data));
     }
 }
