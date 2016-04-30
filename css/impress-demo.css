@@ -122,13 +122,13 @@ a:focus {
 
 /* https://gist.github.com/staltz/868e7e9bc2a7b8c1f754 */
 .stream {
-    background-image: url(/img/stream.jpeg);
+    background-image: url(../img/stream.jpeg);
     background-size: cover;
 }
 
 /* http://izquotes.com/quote/273528 */
 .code {
-    background: url(/img/talk-is-cheap.jpg) no-repeat center;
+    background: url(../img/talk-is-cheap.jpg) no-repeat center;
 }
 
 .impress-enabled .step {
