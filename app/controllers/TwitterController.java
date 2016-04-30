@@ -18,11 +18,13 @@ package controllers;
 
 import actors.TwitterSearchActor;
 import akka.actor.ActorRef;
+import akka.stream.javadsl.Source;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.Maps;
+import play.libs.EventSource;
 import play.libs.Json;
-import play.libs.LegacyEventSource;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import services.TwitterEventService;
 import views.html.search;
@@ -63,23 +65,8 @@ public class TwitterController extends Controller {
     }
 
     public Result events() {
-        return ok(new LegacyEventSource() {
-            @Override
-            public void onConnected() {
-                twitterEventService.subscribe(this);
-            }
-
-            @Override
-            public void onDisconnected(Runnable callback) {
-                try {
-                    twitterEventService.unsubscribe(this);
-                }
-                finally {
-                    super.onDisconnected(callback);
-                }
-            }
-        })
-        .as(TEXT_EVENT_STREAM);
+        return ok().chunked(Source.fromPublisher(twitterEventService).via(EventSource.flow()))
+            .as(Http.MimeTypes.EVENT_STREAM);
     }
 
     private static <T> JsonNode toJson(String key, T value) {
