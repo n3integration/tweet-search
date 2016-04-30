@@ -1,0 +1,225 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Play Framework</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/impress-demo.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        <!-- img src="img/TechLogo_B&W_Horizontal.jpg" -->
+        <q>Building Web Services<br/>
+        with the <span class="accent">Play<span> Framework</q>
+        <br/>
+        <span class="footnote">by Rob Perry</span>
+        <br/>
+        <span class="footnote">04.29.2016</span>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="-1500">
+        <q>
+            <span class="accent">May 2008</span><br/>
+            Play 1.0 – originally released
+        </q>
+        <br/>
+        <br/>
+        <img src="img/play_full_color.png" width="400px">
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="-1500">
+        <q>
+            <span class="accent">March 2012</span> <br/>
+            Play 2.0 – rewritten and released
+        </q>
+        <br/>
+        <br/>
+        <img class="img-section" src="img/scalaFx.png">
+        <!-- https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwix09er5vbLAhVEGB4KHSkKBCYQjxwIAw&url=http%3A%2F%2Flifuzu.com%2Fblog%2F2015%2F01%2F31%2Fgetting-started-with-scala&bvm=bv.118443451,d.dmo&psig=AFQjCNGTwD6rPWtTn_N5ChzAq26uY66ebw&ust=1459921691894762 -->
+    </div>
+
+    <div class="step slide" data-x="2000" data-y="-1500">
+        <q>Enables <span class="accent">Rapid</span> Development
+        <br/>
+        <br/>
+        <ul>
+            <li class="accent"><i class="fa fa-fw fa-refresh"></i> Hot Reloading</li>
+            <li class="accent"><i class="fa fa-fw fa-database"></i><a href="https://www.playframework.com/documentation/2.5.x/Evolutions"> Database Migrations</a></li>
+            <li class="accent"><i class="fa fa-fw fa-retweet"></i><a href="https://www.mschweighauser.com/playframework-asset-pipeline/"> Asset Pipelines</a></li>
+        </ul>
+        <q>
+    </div>
+
+    <div class="step slide" data-x="3000" data-y="-1500">
+        <q>Supports <span class="accent">Modular</span> Development
+        <ul>
+            <li><span class="accent">InnerSource</span> Modules</li>
+            <li><span class="accent">Community</span> Modules</li>
+        </ul>
+        <i class="accent fa fa-puzzle-piece fa-flip-horizontal fa-5x fa-pull-right"></i>
+        <q>
+    </div>
+
+    <div class="step slide" data-x="4000" data-y="-1500">
+        <q>Supports <span class="accent">Dependency Injection</span></q>
+        <br/>
+        <img src="img/guice.jpg" width="350px">
+        <span style="padding-left: 60px">or</span>
+        <img src="img/spring.png">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span class="footnote accent">*Provides lifecycle hooks</span>
+    </div>
+
+    <div class="step slide stream" data-x="5000" data-y="-1500">
+        <!-- https://gist.github.com/staltz/868e7e9bc2a7b8c1f754 -->
+        <p>Everything is a stream...</p>
+    </div>
+
+    <div class="step slide" data-x="6000" data-y="-1500">
+        <q>Reactive Manifesto
+        <ul>
+            <li class="accent"><i class="fa fa-fw fa-mobile"></i> Responsive</li>
+            <li class="accent"><i class="fa fa-fw fa-cogs"></i> Resilient</li>
+            <li class="accent"><i class="fa fa-fw fa-cloud"></i> Elastic</li>
+            <li class="accent"><i class="fa fa-fw fa-bolt"></i> Event Driven</li>
+        </ul>
+        <q>
+    </div>
+
+    <div class="step slide" data-x="7000" data-y="-1500">
+        <q>Embraces Modern Web
+        <ul>
+            <li class="accent">WebSockets</li>
+            <li class="accent">Server Sent Events (SSE)</li>
+            <li class="accent">CORS</li>
+        </ul>
+        <i class="accent fa fa-globe fa-5x fa-pull-right"></i>
+        <q>
+    </div>
+
+    <div class="step slide" data-x="8000" data-y="-1500">
+        <q><i class="fa"></i>Embraces TDD
+        <ul>
+            <li class="accent">JUnit</li>
+            <li class="accent">Selenium</li>
+        </ul>
+        <i class="accent fa fa-flask fa-5x fa-pull-right"></i>
+        <q>
+    </div>
+
+    <div class="step slide" data-x="9000" data-y="-1500">
+        <q>Built-in Cache Support
+        <ul>
+            <li class="accent">Hazelcast</li>
+            <li class="accent"><a href="https://github.com/typesafehub/play-plugins/tree/master/redis">Redis</a></li>
+            <li class="accent"><a href="https://github.com/mumoshu/play2-memcached">Memcached</a></li>
+        </ul>
+        <i class="accent fa fa-recycle fa-5x fa-pull-right"></i>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="10000" data-y="-1500">
+        <q>Community Persistence 
+        <ul>
+            <li class="accent"><a href="https://github.com/ReactiveMongo/Play-ReactiveMongo">MongoDB</a></li>
+            <li class="accent"><a href="https://github.com/cleverage/play2-elasticsearch">Elasticsearch</a></li>
+            <i class="accent fa fa-database fa-5x fa-pull-right"></i>
+            <li class="accent"><a href="https://github.com/typesafehub/play-plugins/tree/master/redis">Redis</a></li>
+            <li class="accent"><a href="https://github.com/Kaliber/play-s3">S3</a></li>
+        </ul>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="11000" data-y="-1500">
+        <q>Server-Side Rendering</q>
+        <q class="accent"><i class="fa"></i> Templating
+            <i class="accent fa fa-code fa-5x fa-pull-right"></i>
+        <q>
+    </div>
+
+    <div class="step slide" data-x="12000" data-y="-1500">
+        <q><i class="fa"></i>Security Features
+        <ul>
+            <li class="accent">Pluggable Authentication</li>
+            <li class="accent">CSRF Filter</li>
+        </ul>
+        <i class="accent fa fa-lock fa-5x fa-pull-right"></i>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="13000" data-y="-1500">
+        <q>Additional Community Support
+        <ul>
+            <li class="accent"><i class="fa"></i> <a href="https://github.com/swagger-api/swagger-play">Swagger</a></li>
+            <li class="accent"><i class="fa"></i> <a href="https://github.com/kenshoo/metrics-play">Metrics</a></li>
+        </ul>
+        <i class="accent fa fa-comments fa-5x fa-pull-right"></i>
+        </q>
+    </div>
+
+    <div class="step slide code" data-x="14000" data-y="-1500">
+    </div>
+
+    <div class="step slide" data-x="15000" data-y="-1500">
+        <q>Demo/Walkthrough</q>
+        <q>
+        <span class="accent">$ activator new demo</span>
+        <br/>
+        <span class="accent">$ activator ~run</span>
+        </q>
+    </div>
+
+    <div class="step slide" data-x="16000" data-y="-1500">
+        <q>Resources
+        <p class="small">
+        <span class="accent"><i class="fa fa-globe"></i> https://www.lightbend.com/</span>
+        <br/>
+        <span class="accent"><i class="fa fa-globe"></i> https://www.playframework.com/</span>
+        <br/>
+        <span class="accent"><i class="fa fa-github"></i> https://github.com/n3integration/tweet-search</span>
+        <br/>
+        <span class="accent"><i class="fa fa-twitter"></i> @n3integration</span>
+        </p>
+        </q>
+    </div>
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) {
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
